@@ -135,7 +135,7 @@ elif slt == 'Indicadores Econômicos':
         period = st.sidebar.slider('select',1980,2021,(2019,2021)) 
         # SELIC - % Taxa de Juros
         if lst_selic == 'SELIC - % Taxa de Juros':
-            ''
+            '  '
 
 elif slt == 'Análise de Ativos':
     atv = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.atvs)
