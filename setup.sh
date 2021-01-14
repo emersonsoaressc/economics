@@ -1,9 +1,8 @@
-
 mkdir -p ~ /.streamlit/
 
 echo  " \
-[servidor] \ n \
-porta = $ PORT \ n \
+[server] \ n \
+port = $ PORT \ n \
 enableCORS = false \ n \
 headless = true \ n \
 \ n \
