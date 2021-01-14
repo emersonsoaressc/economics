@@ -83,3 +83,4 @@ def graf_plotly(data_frame, titulo):
             lines = fig.add_trace(go.Scatter(x=data_frame.index, y=data_frame[f'{i}'], name= f"{i}", mode="lines", visible='legendonly'))
     return lines
    
+

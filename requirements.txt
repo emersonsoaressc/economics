@@ -1,14 +1,13 @@
 ipeadatapy==0.1.7
-numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
-pandas @ file:///C:/ci/pandas_1602083338010/work
+numpy==1.19.2
+pandas==1.1.3
 pandas-datareader==0.9.0
 Pillow==8.1.0
 plotly==4.14.1
 requests==2.25.1
 requests-html==0.10.0
 scikit-image==0.17.2
-scikit-learn @ file:///C:/ci/scikit-learn_1598377018496/work
-seaborn @ file:///tmp/build/80754af9/seaborn_1600553570093/work
+seaborn==0.11.0
 sgs==2.1.0
 streamlit==0.74.1
 yahoo-fin==0.8.6
