@@ -14,10 +14,10 @@ def df_sgs(lista_sgs,ano_inicio, ano_fim, name):
     for i in lista_sgs:
         data_inicio = ano_inicio
         data_fim = ano_fim
-        split = i.split(sep='-')
-        df1 = sgs.time_serie(split[0], data_inicio, data_fim,True)
+        splits = i.split(sep='-')
+        df1 = sgs.time_serie(splits[0], data_inicio, data_fim,True)
         df1 = pd.DataFrame(df1)
-        df1 = df1.rename(columns={f'{split[0]}':f'{split[1]}'})
+        df1 = df1.rename(columns={f'{splits[0]}':f'{splits[1]}'})
         df = pd.concat([df,df1], axis=1)
     return df.to_csv(f'base_csv/base_{name}.csv')
 
