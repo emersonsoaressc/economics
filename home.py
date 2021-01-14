@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np 
 import pandas as pd 
-from PIL import Image
+
 import options as opt
 import functions as fc
 from ipca import pag_ipca
@@ -10,8 +10,8 @@ from ipca import pag_ipca
 
 ## PÁGINA INICIAL
 st.title('PY ECONOMICS - A Economia em dados!')
-img_head = Image.open('imagens\python.jpg')
-st.sidebar.image(img_head, width= 300)
+
+
 st.sidebar.subheader('Menu Principal')
 slt = st.sidebar.selectbox('Selecione o tipo de análise:', opt.option)
     
