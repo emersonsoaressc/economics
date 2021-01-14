@@ -1,5 +1,4 @@
 ipeadatapy==0.1.7
-matplotlib @ file:///C:/ci/matplotlib-base_1603355780617/work
 numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
 pandas @ file:///C:/ci/pandas_1602083338010/work
 pandas-datareader==0.9.0

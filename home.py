@@ -5,7 +5,7 @@ from PIL import Image
 import options as opt
 import functions as fc
 from ipca import pag_ipca
-import matplotlib.pyplot as plt
+
 
 
 ## PÁGINA INICIAL
