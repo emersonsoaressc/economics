@@ -1,8 +1,6 @@
-# ipca.py
 import pandas as pd 
 import streamlit as st
 import functions as fc
-import home as h
 import options as opt
 import sgs
 import plotly.graph_objects as go
@@ -30,7 +28,6 @@ def pag_ipca():
         st.write(fc.graf_plotly(df,'IPCA - % Variação Mensal Total'))
     elif lst_ipca == 'IPCA - % Variação Mensal Setorizado':
         df = pd.DataFrame(df_base)
-        df
         st.write(fc.graf_plotly(df,'IPCA - % Variação Mensal Setorizado'))
         
         
