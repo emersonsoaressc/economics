@@ -34,8 +34,9 @@ elif slt == 'Indicadores Econômicos':
     if iec == 'IPCA': 
         pag_ipca()               
     elif iec == 'IGPM':
-        pag_selic()      
-
+        ''      
+    elif iec == 'SELIC':
+        pag_selic()
     # Layout da escolha SELIC
     elif iec == 'SELIC':
         lst_selic = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.lista_selic)
