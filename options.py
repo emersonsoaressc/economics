@@ -22,7 +22,7 @@ iecon = [
 atvs = [
     'Análise de Índices da B3',
     'Análise de Empresas listadas',
-    'CDI',
+    
 ]
 lista_ipca = [
     'IPCA - % Acumulado em 12 meses',
