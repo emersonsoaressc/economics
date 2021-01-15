@@ -5,7 +5,7 @@ import sgs
 import plotly.graph_objects as go
 import options as opt
 import locale
-locale.setlocale(locale.LC_ALL, 'pt')
+locale.setlocale(locale.LC_ALL, 'pt-BR')
 
 
 ##### ========== FUNÇÕES BÁSICAS ========== #####
