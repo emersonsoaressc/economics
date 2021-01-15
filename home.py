@@ -80,13 +80,13 @@ def pag_ipca():
     graf_plotly(df_interval,'IPCA % Acumulado em 12 meses')
 #  IPCA - % Variação Mensal Total
     if lst_ipca == 'IPCA - % Acumulado em 12 meses':
-        df = pd.DataFrame(df_base['IPCA Acumulado 12 meses'])
+        df = pd.DataFrame(df_interval['IPCA Acumulado 12 meses'])
         st.write(graf_plotly(df,'IPCA % Acumulado em 12 meses'))
     elif lst_ipca == 'IPCA - % Variação Mensal Total':
-        df = pd.DataFrame(df_base['Variação Mensal Total'])
+        df = pd.DataFrame(df_interval['Variação Mensal Total'])
         st.write(graf_plotly(df,'IPCA - % Variação Mensal Total'))
     elif lst_ipca == 'IPCA - % Variação Mensal Setorizado':
-        df = pd.DataFrame(df_base)
+        df = pd.DataFrame(df_interval)
         st.write(graf_plotly(df,'IPCA - % Variação Mensal Setorizado'))
 
 
