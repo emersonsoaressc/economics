@@ -71,7 +71,7 @@ def pag_ipca():
     lst_ipca = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.lista_ipca)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
 # Gerando base de dados
-    df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0')
+    df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0)
 #  IPCA - % Variação Mensal Total
     if lst_ipca == 'IPCA - % Acumulado em 12 meses':
         df = pd.DataFrame(df_base['IPCA Acumulado 12 meses'])
