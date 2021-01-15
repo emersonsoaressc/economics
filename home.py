@@ -4,6 +4,8 @@ import pandas as pd
 import sgs
 import plotly.graph_objects as go
 import options as opt
+import locale
+lolale.setlocale(locale.LC_ALL, 'pt')
 
 
 ##### ========== FUNÇÕES BÁSICAS ========== #####
