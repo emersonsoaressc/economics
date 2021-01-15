@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import options as opt
 import sgs
-from func_pyeconomics as fp
+from func_pyeconomics import  graf_plotly
 import plotly.graph_objects as go
 
 ### ========= TRATAMENTO DE DADOS REFERENTE AO IPCA ========= ###

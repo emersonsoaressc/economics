@@ -4,7 +4,7 @@ import pandas as pd
 import sgs
 import plotly.graph_objects as go
 import options as opt
-from func_pyeconomics as fp
+from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 import locale
 locale.setlocale(locale.LC_ALL, )
