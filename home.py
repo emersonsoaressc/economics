@@ -75,8 +75,7 @@ def pag_ipca():
     a = period[0]
     b = period[1]
     interval = (df_base.index >= f'{a}-01-01') & (df_base.index <= f'{b}-01-01')
-    df = pd.DataFrame(df_base['IPCA Acumulado 12 meses'])
-    df_interval = df[interval]
+    df_interval = df_base[interval]
     graf_plotly(df_interval,'IPCA % Acumulado em 12 meses')
 #  IPCA - % Variação Mensal Total
     if lst_ipca == 'IPCA - % Acumulado em 12 meses':
