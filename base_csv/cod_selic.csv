@@ -1,4 +1,5 @@
-﻿codigo;cod;serie
-1178;1178-SELIC (Taxa de Juros);SELIC (Taxa de Juros)
-432;432-SELIC (Taxa de juros meta);SELIC (Taxa de juros meta)
-4390;4390-SELIC (Taxa de Juros acumulado);SELIC (Taxa de Juros acumulado)
+﻿codigo;serie;lista
+11;SELIC (Taxa de Juros diária);11-SELIC (Taxa de Juros diária)
+1178;SELIC (Taxa de Juros Anual);1178-SELIC (Taxa de Juros Anual)
+432;SELIC (Taxa de juros meta);432-SELIC (Taxa de juros meta)
+4390;SELIC (Taxa de Juros acumulado Mês);4390-SELIC (Taxa de Juros acumulado Mês)

@@ -30,9 +30,10 @@ lista_ipca = [
     'IPCA - % Variação Mensal Setorizado',   
 ]
 lista_selic = [
-    'SELIC - % Taxa de Juros',
-    'IPCA - % Variação Mensal Total',
-    'IPCA - % Variação Mensal Setorizado',   
+    'SELIC (Taxa de Juros Diária)',
+    'SELIC (Taxa de Juros Anual)',
+    'SELIC (Taxa de Juros Meta Anual)', 
+    'SELIC (Taxa de Juros Acumulado Mês)',  
 ]
 
 cod_ipca = pd.read_csv('base_csv/cod_ipca.csv', encoding='UTF-8', sep=';')

@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import options as opt
 from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
+from selic import pag_selic
 import locale
 locale.setlocale(locale.LC_ALL, )
 
@@ -33,7 +34,7 @@ elif slt == 'Indicadores Econômicos':
     if iec == 'IPCA': 
         pag_ipca()               
     elif iec == 'IGPM':
-        ''      
+        pag_selic()      
 
     # Layout da escolha SELIC
     elif iec == 'SELIC':
