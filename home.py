@@ -4,90 +4,16 @@ import pandas as pd
 import sgs
 import plotly.graph_objects as go
 import options as opt
+from func_pyeconomics as fp
+from ipca import pag_ipca
 import locale
 locale.setlocale(locale.LC_ALL, )
 
-### ==== FUNÇÃO PARA CRIAR GRÁFICOS DO PLOTLY A PARTIR DE BASE DE DADOS SGS BACEN ==== ###
-def graf_plotly(data_frame, titulo):
-    fig = go.Figure()
-    fig.update_layout(
-    title= f'{titulo}', 
 
-    xaxis=dict(
-        showline=True,
-        showgrid=False,
-        showticklabels=True,
-        linecolor='rgb(204, 204, 204)',
-        linewidth=2,
-        ticks='outside',
-        tickfont=dict(
-            family='Arial',
-            size=12,
-            color='rgb(82, 82, 82)',
-        ),
-    ),
-    yaxis=dict(
-        title= '%',
-        showgrid=False,
-        zeroline=True,
-        showline=True,
-        showticklabels=True,
-    ),
-    autosize=True,
-    margin=dict(
-        autoexpand=True,
-        l=100,
-        r=20,
-        t=110,
-    ),
-    showlegend=True,
-    plot_bgcolor='white',
-    legend= dict(
-        font=dict(
-            family='Arial',
-            size=9)
-    )
-    )
-    count = 0
-    for i in data_frame.columns:
-        if count < 2:
-            count += 1
-            lines = fig.add_trace(go.Scatter(x=data_frame.index, y=data_frame[f'{i}'], name= f"{i}", mode="markers+lines", visible=True))
-        elif count == 2:
-            count += 1
-            lines = fig.add_trace(go.Scatter(x=data_frame.index, y=data_frame[f'{i}'], name= f"{i}", mode="lines", visible=True))
-        elif count >2:
-            count += 1
-            lines = fig.add_trace(go.Scatter(x=data_frame.index, y=data_frame[f'{i}'], name= f"{i}", mode="lines", visible='legendonly'))
-    return lines
+
 
 
 ### ========= FUNÇÕES PARA CRIAR A ARQUITETURA DA PÁGINA ========= ###
-
-### ==== FUNÇÃO PARA CRIAR PÁGINA IPCA ==== ###
-
-def pag_ipca():
-# Fazendo a verificação do subtópico abordado
-    lst_ipca = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.lista_ipca)
-    period = st.sidebar.slider('select',1980,2021,(2019,2021))
-# Gerando base de dados
-    df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0)
-    a = period[0]
-    b = period[1]
-    interval = (df_base.index >= f'{a}-01-01') & (df_base.index <= f'{b}-01-01')
-    df_interval = df_base[interval]
-    graf_plotly(df_interval,'IPCA % Acumulado em 12 meses')
-#  IPCA - % Variação Mensal Total
-    if lst_ipca == 'IPCA - % Acumulado em 12 meses':
-        df = pd.DataFrame(df_interval['IPCA Acumulado 12 meses'])
-        st.write(graf_plotly(df,'IPCA % Acumulado em 12 meses'))
-    elif lst_ipca == 'IPCA - % Variação Mensal Total':
-        df = pd.DataFrame(df_interval['Variação Mensal Total'])
-        st.write(graf_plotly(df,'IPCA - % Variação Mensal Total'))
-    elif lst_ipca == 'IPCA - % Variação Mensal Setorizado':
-        df = pd.DataFrame(df_interval)
-        st.write(graf_plotly(df,'IPCA - % Variação Mensal Setorizado'))
-
 
 ## PÁGINA INICIAL
 st.title('PY ECONOMICS - A Economia em dados!')
