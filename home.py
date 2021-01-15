@@ -29,7 +29,7 @@ def gera_base(ano_inicio, ano_fim):
     inicio = ano_inicio
     fim = ano_fim
     cod_list = pd.read_csv('base_csv/cod_ipca.csv', sep=';').set_index('codigo')
-    df_sgs(cod_list['lista'], f'01/01/{inicio}', f'01/01/{fim}', 'ipca')
+    df_sgs(cod_list['lista'], '{inicio}-01-01', f'{fim}-01-01', 'ipca')
     df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0)
     return df_base
 
