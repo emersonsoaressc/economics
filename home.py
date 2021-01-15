@@ -72,8 +72,8 @@ def pag_ipca():
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
 # Gerando base de dados
     df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0)
-    a = 2010
-    b = 2021
+    a = period[0]
+    b = period[1]
     interval = (df_base.index >= f'{a}-01-01') & (df_base.index <= f'{b}-01-01')
     df = pd.DataFrame(df_base['IPCA Acumulado 12 meses'])
     df_interval = df[interval]
