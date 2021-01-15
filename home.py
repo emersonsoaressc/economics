@@ -7,33 +7,6 @@ import options as opt
 import locale
 locale.setlocale(locale.LC_ALL, )
 
-
-##### ========== FUNÇÕES BÁSICAS ========== #####
-
-### ==== FUNÇÃO PARA CRIAR DATAFRAMES A PARTIR DE BASE DE DADOS SGS BACEN ==== ###
-def df_sgs(lista_sgs,ano_inicio, ano_fim, name):
-    df = pd.DataFrame()
-    for i in lista_sgs:
-        data_inicio = ano_inicio
-        data_fim = ano_fim
-        splits = i.split(sep='-')
-        df1 = sgs.time_serie(splits[0], data_inicio, data_fim,True)
-        df1 = pd.DataFrame(df1)
-        df1 = df1.rename(columns={f'{splits[0]}':f'{splits[1]}'})
-        df = pd.concat([df,df1], axis=1)
-    return df.to_csv(f'base_csv/base_{name}.csv')
-
-
-### ==== FUNÇÃO PARA GERAR BASE DE DADOS ==== ###
-def gera_base(ano_inicio, ano_fim):
-    inicio = ano_inicio
-    fim = ano_fim
-    cod_list = pd.read_csv('base_csv/cod_ipca.csv', sep=';').set_index('codigo')
-    df_sgs(cod_list['lista'], '{inicio}-01-01', f'{fim}-01-01', 'ipca')
-    df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0)
-    return df_base
-
-
 ### ==== FUNÇÃO PARA CRIAR GRÁFICOS DO PLOTLY A PARTIR DE BASE DE DADOS SGS BACEN ==== ###
 def graf_plotly(data_frame, titulo):
     fig = go.Figure()
@@ -98,7 +71,7 @@ def pag_ipca():
     lst_ipca = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.lista_ipca)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
 # Gerando base de dados
-    df_base = gera_base(period[0], period[1])
+    df_base = pd.read_csv('base_csv/base_ipca.csv', encoding='UTF-8', sep=',', index_col=0')
 #  IPCA - % Variação Mensal Total
     if lst_ipca == 'IPCA - % Acumulado em 12 meses':
         df = pd.DataFrame(df_base['IPCA Acumulado 12 meses'])
