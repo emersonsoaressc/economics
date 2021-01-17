@@ -29,6 +29,6 @@ def pag_covid():
 # Fazendo a verificação do subtópico abordado
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
-    st.write(df)
+    st.write(df.head(10))
 # Gerando base de dados
  
