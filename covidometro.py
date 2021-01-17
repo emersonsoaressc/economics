@@ -29,6 +29,52 @@ def pag_covid():
 # Fazendo a verificação do subtópico abordado
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
-    st.write(df.head(10))
+    
 # Gerando base de dados
- 
+    df = df.head(10)
+    df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100
+    fig = go.Figure(data=[
+        go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
+        go.Bar(name='Casos Ativos', x=covid_paises['name'], y=df['active'], visible='legendonly'),
+        go.Bar(name='Mortes', x=covid_paises['name'], y=df['deaths'], visible=True),
+        go.Bar(name='% Mortalidade', x=covid_paises['name'], y=df['% Mortalidade'], visible='legendonly')
+    ])
+    fig.update_layout(
+        title= 'Covidômetro - Os 10+', 
+        barmode='stack',
+        xaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            linecolor='rgb(204, 204, 204)',
+            linewidth=2,
+            ticks='outside',
+            tickfont=dict(
+                family='Arial',
+                size=12,
+                color='rgb(82, 82, 82)',
+            ),
+        ),
+        yaxis=dict(
+            showgrid=False,
+            zeroline=True,
+            showline=True,
+            showticklabels=True,
+        ),
+        autosize=True,
+        margin=dict(
+            autoexpand=True,
+            l=100,
+            r=20,
+            t=110,
+        ),
+        showlegend=True,
+        plot_bgcolor='white',
+        legend= dict(
+            font=dict(
+                family='Arial',
+               size=9)
+        )
+        )
+    fig.show()
+    st.write(df.head(10))
