@@ -31,7 +31,7 @@ def pag_covid():
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     
 # Gerando base de dados
-    df = df.head(10)
+    df = df.iloc[0:10]
     df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100
     fig = go.Figure(data=[
         go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
