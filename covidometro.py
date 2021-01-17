@@ -27,7 +27,7 @@ df = df.iloc[0:10]
 ### ==== FUNÇÃO PARA CRIAR PÁGINA COVID ==== ###
 
 # Gerando Gráfico de Barras dos 10+
-def graf_bar():
+def graf_bar(covid_paises, df):
     fig = go.Figure(data=[
         go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
         go.Bar(name='Casos Ativos', x=covid_paises['name'], y=df['active'], visible='legendonly'),
@@ -79,4 +79,4 @@ def pag_covid():
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
-    st.write(graf_bar())
+    st.write(graf_bar(covid_paises, df))
