@@ -76,5 +76,6 @@ def pag_covid():
                size=9)
         )
         )
-    fig.show()
+    
+    st.write(fig.show())
     st.write(df)
