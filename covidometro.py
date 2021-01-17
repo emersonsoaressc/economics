@@ -25,13 +25,8 @@ for i in covid_paises['name']:
 
 ### ==== FUNÇÃO PARA CRIAR PÁGINA COVID ==== ###
 
-def pag_covid():
-# Fazendo a verificação do subtópico abordado
-    lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
-    period = st.sidebar.slider('select',1980,2021,(2019,2021))
-    
-# Gerando base de dados
-    
+# Gerando Gráfico de Barras dos 10+
+def graf_bar():
     df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100
     fig = go.Figure(data=[
         go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
@@ -73,9 +68,15 @@ def pag_covid():
         legend= dict(
             font=dict(
                 family='Arial',
-               size=9)
+                size=9)
         )
         )
-    
-    st.write(fig.show())
+    return fig.show()
+
+
+def pag_covid():
+# Fazendo a verificação do subtópico abordado
+    lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
+    period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
+    st.write(graf_bar())
