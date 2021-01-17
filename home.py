@@ -7,6 +7,7 @@ import options as opt
 from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 from selic import pag_selic
+from covid import pag_covid
 import locale
 locale.setlocale(locale.LC_ALL, )
 
@@ -26,7 +27,8 @@ if slt == 'Home':
     ''
 elif slt == 'Covidômetro':
     cvd = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.covid)
-    
+    if cvd == 'Casos x Mortes':
+        pag_covid()
 elif slt == 'Indicadores Econômicos':
     iec = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.iecon)
     
