@@ -18,7 +18,7 @@ for i in covid_paises['name']:
   df1 = covid.get_status_by_country_name(i)
   df1 = pd.DataFrame.from_dict(df1, orient='index').T
   df = pd.concat([df,df1])
-
+  df = df.iloc[0:10]  
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
 
@@ -31,7 +31,7 @@ def pag_covid():
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     
 # Gerando base de dados
-    df = df.iloc[0:10]
+    
     df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100
     fig = go.Figure(data=[
         go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
@@ -77,4 +77,4 @@ def pag_covid():
         )
         )
     fig.show()
-    st.write(df.head(10))
+    st.write(df)
