@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import options as opt
 import sgs
-from func_pyeconomics import graf_plotly, graf_bar
+from func_pyeconomics import graf_plotly, graf_covid_wbar
 import plotly.graph_objects as go
 from covid import Covid
 
@@ -31,4 +31,4 @@ def pag_covid():
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
-    st.write(graf_bar(df, 'teste'))
+    st.write(graf_covid_wbar(df))
