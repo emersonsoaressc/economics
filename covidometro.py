@@ -21,7 +21,7 @@ def cria_df_covid():
     df = pd.concat([df, df1])
     df['% Mortalidade'] = df['deaths'] / df['confirmed'] * 100
     df = df.iloc[0:10]
-    return covid_paises, df
+    return (covid_paises, df)
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
 
@@ -30,7 +30,7 @@ def cria_df_covid():
 
 def pag_covid():
 # Fazendo a verificação do subtópico abordado
-    df = cria_df_covid()
+    covid_paises, df = cria_df_covid()
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
