@@ -7,7 +7,7 @@ import options as opt
 from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 from selic import pag_selic
-from covid import pag_covid
+from covidometro import pag_covid
 import locale
 locale.setlocale(locale.LC_ALL, )
 
