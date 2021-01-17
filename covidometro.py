@@ -18,7 +18,8 @@ for i in covid_paises['name']:
   df1 = covid.get_status_by_country_name(i)
   df1 = pd.DataFrame.from_dict(df1, orient='index').T
   df = pd.concat([df,df1])
-  df = df.iloc[0:10]  
+df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100  
+df = df.iloc[0:10]   
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
 
@@ -27,17 +28,6 @@ for i in covid_paises['name']:
 
 # Gerando Gráfico de Barras dos 10+
 def graf_bar():
-    covid = Covid()
-    covid_paises = covid.list_countries()
-    covid_paises = pd.DataFrame(covid_paises)
-    covid_paises = covid_paises.set_index('id')
-    df = pd.DataFrame()
-    for i in covid_paises['name']:
-        df1 = covid.get_status_by_country_name(i)
-        df1 = pd.DataFrame.from_dict(df1, orient='index').T
-        df = pd.concat([df,df1])
-    df = df.iloc[0:10] 
-    df['% Mortalidade'] =  df['deaths'] / df['confirmed'] * 100
     fig = go.Figure(data=[
         go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
         go.Bar(name='Casos Ativos', x=covid_paises['name'], y=df['active'], visible='legendonly'),
