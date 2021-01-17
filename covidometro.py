@@ -28,12 +28,7 @@ df = df.iloc[0:10]
 
 # Gerando Gráfico de Barras dos 10+
 def graf_bar(covid_paises, df):
-    fig = go.Figure(data=[
-        go.Bar(name='Casos confirmados', x=covid_paises['name'], y=df['confirmed'], visible='legendonly'),
-        go.Bar(name='Casos Ativos', x=covid_paises['name'], y=df['active'], visible='legendonly'),
-        go.Bar(name='Mortes', x=covid_paises['name'], y=df['deaths'], visible=True),
-        go.Bar(name='% Mortalidade', x=covid_paises['name'], y=df['% Mortalidade'], visible='legendonly')
-    ])
+    fig = go.Figure()
     fig.update_layout(
         title= 'Covidômetro - Os 10+', 
         barmode='stack',
@@ -71,8 +66,12 @@ def graf_bar(covid_paises, df):
                 size=9)
         )
         )
-    return fig.show()
-
+    return (
+        fig.add_trace(go.Scatter(x=covid_paises['name'], y=df['confirmed'], visible='legendonly')),
+        fig.add_trace(go.Scatter(x=covid_paises['name'], y=df['active'], visible='legendonly')),
+        fig.add_trace(go.Scatter(x=covid_paises['name'], y=df['deaths'], visible=True)),
+        fig.add_trace(go.Scatter(x=covid_paises['name'], y=df['% Mortalidade'], visible='legendonly'))
+    )
 
 def pag_covid():
 # Fazendo a verificação do subtópico abordado
