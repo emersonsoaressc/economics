@@ -21,7 +21,7 @@ def cria_df_covid():
     df = pd.concat([df, df1])
     df['% Mortalidade'] = df['deaths'] / df['confirmed'] * 100
     df = df.iloc[0:10]
-    df
+    return covid_paises, df
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
 
