@@ -2,26 +2,13 @@ import pandas as pd
 import streamlit as st
 import options as opt
 import sgs
-from func_pyeconomics import graf_plotly, graf_covid_wbar
+from func_pyeconomics import graf_plotly, graf_covid_wbar, cria_df_covid
 import plotly.graph_objects as go
-from covid import Covid
+
 
 ### ========= TRATAMENTO DE DADOS REFERENTE AO COVID ========= ###
 
-# Listando países para criar dataframe
-def cria_df_covid():
-    covid = Covid()
-    covid_paises = covid.list_countries()
-    covid_paises = pd.DataFrame(covid_paises)
-    covid_paises = covid_paises.set_index('id')
-    df = pd.DataFrame()
-    for i in covid_paises['name']:
-        df1 = covid.get_status_by_country_name(i)
-        df1 = pd.DataFrame.from_dict(df1, orient='index').T
-        df = pd.concat([df, df1])
-    df['% Mortalidade'] = df['deaths'] / df['confirmed'] * 100
-    df = df.iloc[0:10]
-    return (covid_paises, df)
+
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
 
