@@ -72,12 +72,14 @@ def cria_df_covid():
         df1 = covid.get_status_by_country_name(i)
         df1 = pd.DataFrame.from_dict(df1, orient='index').T
         df = pd.concat([df, df1])
+        df = pd.DataFrame(df)
     df['% Mortalidade'] = df['deaths'] / df['confirmed'] * 100
     df = df.iloc[0:10]
-    return (covid_paises, df)
+    return df
+
 
 def graf_covid_wbar(data_frame):
-    covid_paises, df = cria_df_covid()
+    df = cria_df_covid()
     fig = go.Figure(data=[
     go.Bar(name='Casos confirmados', x=data_frame['country'], y=df['confirmed'], visible='legendonly'),
     go.Bar(name='Casos Ativos', x=data_frame['country'], y=df['active'], visible='legendonly'),
