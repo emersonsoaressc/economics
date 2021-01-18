@@ -18,7 +18,7 @@ def cria_df_covid():
     for i in covid_paises['name']:
         df1 = covid.get_status_by_country_name(i)
         df1 = pd.DataFrame.from_dict(df1, orient='index').T
-    df = pd.concat([df, df1])
+        df = pd.concat([df, df1])
     df['% Mortalidade'] = df['deaths'] / df['confirmed'] * 100
     df = df.iloc[0:10]
     return (covid_paises, df)
