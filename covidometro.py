@@ -34,4 +34,5 @@ def pag_covid():
     lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
+    st.write(covid_paises)
     st.write(graf_covid_wbar(df))
