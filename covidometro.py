@@ -17,9 +17,9 @@ import plotly.graph_objects as go
 
 def pag_covid():
 # Fazendo a verificação do subtópico abordado
-    covid_paises, df = cria_df_covid()
-    lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',covid_paises)
+    paises, df = cria_df_covid()
+    lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',paises)
     period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
-    st.write(covid_paises)
+    st.write(paises)
     st.write(graf_covid_wbar(df))
