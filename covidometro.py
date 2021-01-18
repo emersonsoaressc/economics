@@ -17,13 +17,8 @@ from covid import Covid
 
 def pag_covid():
 # Fazendo a verificação do subtópico abordado
-    covid = Covid()
-    paises = covid.list_countries()
-    paises = pd.DataFrame(paises)
-    paises = paises.set_index('id')
     df = cria_df_covid()
-    lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',paises)
-    period = st.sidebar.slider('select',1980,2021,(2019,2021))
+    #lst_paises = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',paises)
+    #period = st.sidebar.slider('select',1980,2021,(2019,2021))
     st.write(df)
-    st.write(paises)
     st.write(graf_covid_wbar(df))

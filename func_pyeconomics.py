@@ -86,5 +86,5 @@ def graf_covid_wbar(data_frame):
     go.Bar(name='Mortes', x=data_frame['country'], y=df['deaths'], visible=True),
     go.Bar(name='% Mortalidade', x=data_frame['country'], y=df['% Mortalidade'], visible='legendonly')])
     fig.update_layout(barmode='stack', xaxis_tickangle=-45)
-    fig.show()
+    return fig.show()
     
