@@ -3,7 +3,6 @@ import pandas as pd
 ## Escolhendo tipo de análise a ser feita ##
 option = [
     'Home',
-    'Covidômetro',
     'Indicadores Econômicos',
     'Análise de Ativos'
 ]
