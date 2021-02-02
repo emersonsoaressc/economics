@@ -18,7 +18,9 @@ locale.setlocale(locale.LC_ALL, )
 ### ========= FUNÇÕES PARA CRIAR A ARQUITETURA DA PÁGINA ========= ###
 
 ## PÁGINA INICIAL
-st.title('PY ECONOMICS - A Economia em dados!')
+st.title('Coleta e Análise de Indicadores Econômicos utilizando o Python')
+st.subheader('Desenvolvido por Emerson Soares')
+st.subheader('Aluno do curso de Ciências Econômicas - UDESC')
 st.sidebar.subheader('Menu Principal')
 slt = st.sidebar.selectbox('Selecione o tipo de análise:', opt.option)
     
