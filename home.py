@@ -25,10 +25,10 @@ slt = st.sidebar.selectbox('Selecione o tipo de análise:', opt.option)
 ## MENU PRINCIPAL
 if slt == 'Home':
     ''
-elif slt == 'Covidômetro':
-    cvd = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.covid)
-    if cvd == 'Casos x Mortes':
-        pag_covid()
+#elif slt == 'Covidômetro':
+#    cvd = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.covid)
+#    if cvd == 'Casos x Mortes':
+#        pag_covid()
 elif slt == 'Indicadores Econômicos':
     iec = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.iecon)
     

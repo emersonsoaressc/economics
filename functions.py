@@ -37,6 +37,8 @@ def graf_plotly(data_frame, titulo):
     title= f'{titulo}', 
 
     xaxis=dict(
+        rangeslider= dict(visible=True),
+        type='date',
         showline=True,
         showgrid=False,
         showticklabels=True,
@@ -50,7 +52,7 @@ def graf_plotly(data_frame, titulo):
         ),
     ),
     yaxis=dict(
-        title= '%',
+        
         showgrid=False,
         zeroline=True,
         showline=True,
