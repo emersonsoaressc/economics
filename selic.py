@@ -18,7 +18,7 @@ import plotly.graph_objects as go
 def pag_selic():
 # Fazendo a verificação do subtópico abordado
     lst_selic = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.lista_selic)
-    period = st.sidebar.slider('select',1980,2021,(2019,2021))
+    period = st.sidebar.slider('select',1980,2022,(2019,2022))
 # Gerando base de dados
     df_base = pd.read_csv('base_csv/base_selic.csv', encoding='UTF-8', sep=',', index_col=0)
     a = period[0]
