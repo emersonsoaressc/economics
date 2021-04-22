@@ -4,12 +4,7 @@ import pandas as pd
 option = [
     'Home',
     'Indicadores Econômicos',
-    'Análise de Ativos'
-]
-covid = [
-    'Casos x Mortes',
-    'Políticas de isolamento adotadas',
-    'Comparativo COVID x Imdicadores Econômicos',
+    'Bolsa de Valores'
 ]
 iecon = [
     'IPCA',
@@ -19,7 +14,7 @@ iecon = [
     'PIB',
 ]
 atvs = [
-    'Análise de Índices da B3',
+    'Análise Setorial',
     'Análise de Empresas listadas',
     
 ]
@@ -34,6 +29,12 @@ lista_selic = [
     'SELIC (Taxa de Juros Meta Anual)', 
     'SELIC (Taxa de Juros Acumulado Mês)',  
 ]
+lista_setorial = [
+    'IEEX - ENERGIA ELÉTRICA',
+  
+]
+
+
 
 cod_ipca = pd.read_csv('base_csv/cod_ipca.csv', encoding='UTF-8', sep=';')
 cod_selic = pd.read_csv('base_csv/cod_selic.csv', encoding='UTF-8', sep=';')

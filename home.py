@@ -7,6 +7,7 @@ import options as opt
 from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 from selic import pag_selic
+from setorial import pag_setorial
 from covidometro import pag_covid
 import locale
 locale.setlocale(locale.LC_ALL, )
@@ -49,5 +50,9 @@ elif slt == 'Indicadores Econômicos':
         if lst_selic == 'SELIC - % Taxa de Juros':
             '  '
 
-elif slt == 'Análise de Ativos':
+elif slt == 'Bolsa de Valores':
     atv = st.sidebar.selectbox('Selecione o tópico que deseja abordar:',opt.atvs)
+
+    # Layout da escolha SETORIAL
+    if atv == 'Análise Setorial':
+        pag_setorial()
