@@ -78,3 +78,4 @@ def normaliza_carteira(dataframe):
     df_normalizado = pd.DataFrame()
     for i in dataframe.columns[0:]:
         df_normalizado[i] = dataframe[i] / dataframe[i][0]
+    return df_normalizado
