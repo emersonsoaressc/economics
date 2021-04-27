@@ -3,7 +3,7 @@ import pandas as pd
 import sgs
 import plotly.graph_objects as go
 import options as opt
-from covid import Covid
+from pandas_datareader import data
 
 ### ==== FUNÇÃO PARA CRIAR GRÁFICOS DO PLOTLY A PARTIR DE BASE DE DADOS SGS BACEN ==== ###
 def graf_plotly(data_frame, titulo=""):
@@ -61,3 +61,14 @@ def graf_plotly(data_frame, titulo=""):
 
 
 ### ==== FUNÇÃO PARA CRIAR DATAFRAMES A PARTIR DE DADOS DO YAHOO ==== ###
+def gera_carteira(ativos,ano_inicio):
+    lista_ativos = ativos + ['BOVA11.SA']
+    dataframe = pd.DataFrame()
+ 
+    for i in lista_ativos:
+        frame = data.DataReader(i, data_source='yahoo', start=f'{ano_inicio}-01-01')
+        frame = frame['Adj Close']
+        frame = pd.DataFrame(frame)
+        frame = frame.rename(columns={'Adj Close':f'{i}'})
+        dataframe = pd.concat([frame, dataframe], axis = 1)
+    return dataframe
