@@ -56,3 +56,4 @@ elif slt == 'Bolsa de Valores':
     # Layout da escolha SETORIAL
     if atv == 'Análise Setorial':
         pag_setorial()
+    elif atv == 'Análise de Carteira de Ações'

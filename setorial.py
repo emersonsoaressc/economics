@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import options as opt
 import sgs
+from pandas_datareader import data
 from func_pyeconomics import  graf_plotly
 import plotly.graph_objects as go
 

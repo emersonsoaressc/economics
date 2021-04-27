@@ -14,8 +14,8 @@ iecon = [
     'PIB',
 ]
 atvs = [
+    'Análise de Carteira de Ações',
     'Análise Setorial',
-    'Análise de Empresas listadas',
     
 ]
 lista_ipca = [
