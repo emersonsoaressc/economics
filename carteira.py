@@ -23,6 +23,4 @@ def pag_carteira():
     carteira['CARTEIRA'] = carteira.sum(axis=1) / len(carteira.columns)
     carteira = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([carteira, benchmark], axis = 1)
-    
-    
-    st.write('Você escolheu:', cart_bench)
+    graf_plotly(cart_bench)
