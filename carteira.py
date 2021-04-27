@@ -17,5 +17,5 @@ def pag_carteira():
     stocks = st.sidebar.multiselect('Insira o ticker das ações na carteira:',stocks_csv)
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
     st.write('Você escolheu:', stocks)
-
+    st.write(len(stocks))
     
