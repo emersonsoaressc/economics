@@ -13,7 +13,7 @@ import plotly.graph_objects as go
 def pag_carteira():
 # ESCOLHENDO ATIVOS PARA ENTRAR NA CARTEIRA
     n_stocks = st.sidebar.slider('Quantos ativos irá compor a carteira?:', 1,10,(1))
-    st.sidebar.text_input('Insira o ticker das ações na carteira:', value='1')
+    st.sidebar.select_slider('Insira o ticker das ações na carteira:',('1','2','3'))
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
 
 
