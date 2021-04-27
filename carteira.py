@@ -18,4 +18,11 @@ def pag_carteira():
     n_stocks = len(stocks)
     dataframe = gera_carteira(stocks,period)
     df_norm = normaliza_carteira(dataframe)
-    st.write('Você escolheu:', df_norm)
+    benchmark = pd.DataFrame(df_norm['BOVA11.SA'])
+    carteira = df_norm.drop(columns='BOVA11.SA')
+    carteira['CARTEIRA'] = carteira.sum(axis=1) / len(carteira.columns)
+    carteira = pd.DataFrame(carteira['CARTEIRA'])
+    cart_bench = pd.concat([carteira, benchmark], axis = 1)
+    
+    
+    st.write('Você escolheu:', cart_bench)
