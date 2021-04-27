@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import options as opt
 from pandas_datareader import data
-from func_pyeconomics import  graf_plotly, gera_carteira
+from func_pyeconomics import  graf_plotly, gera_carteira, normaliza_carteira
 import plotly.graph_objects as go
 
 ### ========= ARQUITETURA DA PÁGINA ========= ###
@@ -17,4 +17,5 @@ def pag_carteira():
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
     n_stocks = len(stocks)
     dataframe = gera_carteira(stocks,period)
+    dataframe = normaliza_carteira(dataframe)
     st.write('Você escolheu:', dataframe)

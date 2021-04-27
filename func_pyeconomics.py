@@ -72,3 +72,9 @@ def gera_carteira(ativos,ano_inicio):
         frame = frame.rename(columns={'Adj Close':f'{i}'})
         dataframe = pd.concat([frame, dataframe], axis = 1)
     return dataframe
+
+
+def normaliza_carteira(dataframe):
+    df_normalizado = pd.DataFrame()
+    for i in dataframe.columns[0:]:
+        df_normalizado[i] = dataframe[i] / dataframe[i][0]
