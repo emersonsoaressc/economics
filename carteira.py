@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 
 def pag_carteira():
 # ESCOLHENDO ATIVOS PARA ENTRAR NA CARTEIRA
-    stocks = pd.read_csv('base_csv\stocks.csv')
+    stocks = pd.read_csv('base_csv/stocks.csv')
     n_stocks = st.sidebar.slider('Quantos ativos irá compor a carteira?:', 1,10,(1))
     st.sidebar.multiselect('Insira o ticker das ações na carteira:',stocks)
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
