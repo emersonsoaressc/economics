@@ -14,7 +14,7 @@ def pag_carteira():
 # ESCOLHENDO ATIVOS PARA ENTRAR NA CARTEIRA
     stocks_csv = pd.read_csv('base_csv/stocks.csv').sort_values('cod_ativo',ascending=True)
     stocks = st.sidebar.multiselect('Insira o ticker das ações na carteira:',stocks_csv)
-    period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2021,(2015))
+    period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2021,(2002))
     n_stocks = len(stocks)
     dataframe = gera_carteira(stocks,period)
     df_norm = normaliza_carteira(dataframe)
