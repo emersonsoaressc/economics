@@ -15,6 +15,5 @@ def pag_carteira():
     n_stocks = st.sidebar.slider('Quantos ativos irá compor a carteira?:', 1,10,(1))
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
     a = period[0]
-    b = period[1]
 
     
