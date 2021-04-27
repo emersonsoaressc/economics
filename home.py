@@ -8,7 +8,6 @@ from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 from selic import pag_selic
 from setorial import pag_setorial
-from covidometro import pag_covid
 import locale
 locale.setlocale(locale.LC_ALL, )
 
