@@ -8,6 +8,7 @@ from func_pyeconomics import  graf_plotly
 from ipca import pag_ipca
 from selic import pag_selic
 from setorial import pag_setorial
+from carteira import pag_carteira
 import locale
 locale.setlocale(locale.LC_ALL, )
 
@@ -56,4 +57,4 @@ elif slt == 'Bolsa de Valores':
     if atv == 'Análise Setorial':
         pag_setorial()
     elif atv == 'Análise de Carteira de Ações':
-        pag_setorial()
+        pag_carteira()
