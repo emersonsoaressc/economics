@@ -17,5 +17,5 @@ def pag_carteira():
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2022,(2015))
     n_stocks = len(stocks)
     dataframe = gera_carteira(stocks,period)
-    dataframe = normaliza_carteira(dataframe)
-    st.write('Você escolheu:', dataframe)
+    df_norm = normaliza_carteira(dataframe)
+    st.write('Você escolheu:', df_norm)
