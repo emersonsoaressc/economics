@@ -16,7 +16,7 @@ def pag_carteira():
     stocks = st.sidebar.multiselect('Insira o ticker das ações na carteira:',stocks_csv)
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2010,2021,(2010))
     n_stocks = len(stocks)
-    dataframe = gera_carteira(stocks,2010)
+    dataframe = gera_carteira(stocks,period)
     df_norm = normaliza_carteira(dataframe)
     benchmark = pd.DataFrame(df_norm['^BVSP'])
     carteira = df_norm.drop(columns='^BVSP')
@@ -24,7 +24,7 @@ def pag_carteira():
     cart = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([cart, benchmark], axis = 1)
     parag1 = st.write(
-        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Também será realizada diversas análise referente ao portfólio'
+        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análise referente ao portfólio'
     )
     parag2 = st.write(
         'Segue abaixo o gráfico "COMPARATIVO - CARTEIRA X IBOVESPA"'
