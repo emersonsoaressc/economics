@@ -63,7 +63,6 @@ def graf_plotly(data_frame, titulo=""):
 ### ==== FUNÇÃO PARA CRIAR DATAFRAMES A PARTIR DE DADOS DO YAHOO ==== ###
 def gera_carteira(ativos,ano_inicio):
     lista_ativos = ativos + ['^BVSP']
-    dataframe = None
     dataframe = pd.DataFrame()
     for i in lista_ativos:
         frame = data.DataReader(i, data_source='yahoo', start=f'{ano_inicio}-01-01')
