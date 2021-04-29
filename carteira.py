@@ -36,5 +36,4 @@ def pag_carteira():
         '"COMPARATIVO - ATIVOS X IBOVESPA"'
     )
     st.write(graf_plotly(ativos_ibov))
-    st.write(cart_bench)
-    st.write(carteira)
+    st.write(ativos_ibov)
