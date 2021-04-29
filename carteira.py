@@ -23,6 +23,9 @@ def pag_carteira():
     carteira['CARTEIRA'] = carteira.sum(axis=1) / len(carteira.columns)
     cart = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([cart, benchmark], axis = 1)
+    parag1 = st.write(
+        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Também será realizada diversas análise referente ao portfólio'
+    )
     st.write(graf_plotly(cart_bench))
     st.write(cart_bench)
     st.write(carteira)
