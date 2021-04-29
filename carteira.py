@@ -17,7 +17,7 @@ def pag_carteira():
     dataframe = gera_carteira(stocks,period)
     df_norm = normaliza_carteira(dataframe)
     benchmark = pd.DataFrame(df_norm['^BVSP'])
-    benchmark.rename(columns={'IBOVESPA'}, inplace=True)
+    benchmark.rename(columns={'^BVSP':'IBOVESPA'}, inplace=True)
     carteira = df_norm.drop(columns='^BVSP')
     carteira['CARTEIRA'] = carteira.sum(axis=1) / len(carteira.columns)
     cart = pd.DataFrame(carteira['CARTEIRA'])
