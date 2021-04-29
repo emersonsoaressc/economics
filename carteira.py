@@ -17,12 +17,7 @@ def pag_carteira():
     period = st.sidebar.slider('A partir de qual ano deseja analisar?:',2000,2021,(2002))
     n_stocks = len(stocks)
     if st.sidebar.button('Gerar Carteira'):
-        dataframe = pd.DataFrame()
-        df_norm = pd.DataFrame()
-        benchmark = pd.DataFrame() 
-        carteira = pd.DataFrame()
-        cart = pd.DataFrame()
-        cart_bench = pd.DataFrame()
+        cart_bench = cart_bench.drop(all)
         dataframe = gera_carteira(stocks,2010)
         df_norm = normaliza_carteira(dataframe)
         benchmark = pd.DataFrame(df_norm['^BVSP'])
