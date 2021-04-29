@@ -19,7 +19,7 @@ locale.setlocale(locale.LC_ALL, )
 ### ========= FUNÇÕES PARA CRIAR A ARQUITETURA DA PÁGINA ========= ###
 
 ## PÁGINA INICIAL
-st.title('Coleta e Análise de Indicadores Econômicos utilizando o Python')
+st.title('Análise de Indicadores Econômicos e Ativos utilizando o Python')
 st.subheader('Desenvolvido por Emerson Soares')
 st.subheader('Aluno do curso de Ciências Econômicas - UDESC')
 st.sidebar.subheader('Menu Principal')
