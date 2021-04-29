@@ -26,6 +26,9 @@ def pag_carteira():
     parag1 = st.write(
         'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Também será realizada diversas análise referente ao portfólio'
     )
+    parag2 = st.write(
+        'Segue abaixo o gráfico "COMPARATIVO - CARTEIRA X IBOVESPA"'
+    )
     st.write(graf_plotly(cart_bench))
     st.write(cart_bench)
     st.write(carteira)
