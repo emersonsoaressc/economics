@@ -24,7 +24,7 @@ def pag_carteira():
     cart = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([cart, benchmark], axis = 1)
     parag1 = st.write(
-        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análise referente ao portfólio'
+        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio'
     )
     parag2 = st.write(
         'Segue abaixo o gráfico "COMPARATIVO - CARTEIRA X IBOVESPA"'
