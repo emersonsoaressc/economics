@@ -28,9 +28,12 @@ def pag_carteira():
     )
     ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
     st.write(
-        'Segue abaixo o gráfico "COMPARATIVO - CARTEIRA X IBOVESPA"'
+        '"COMPARATIVO - CARTEIRA X IBOVESPA"'
     )
     st.write(graf_plotly(cart_bench))
-
+    st.write(
+        '"COMPARATIVO - ATIVOS X IBOVESPA"'
+    )
+    st.write(graf_plotly(carteira))
     st.write(cart_bench)
     st.write(carteira)
