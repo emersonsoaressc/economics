@@ -23,6 +23,7 @@ def pag_carteira():
         benchmark = pd.DataFrame(df_norm['^BVSP'])
         carteira = df_norm.drop(columns='^BVSP')
         carteira['CARTEIRA'] = carteira.sum(axis=1)
+        carteira['CARTEIRA'] = carteira['CARTEIRA']/len(carteira.columns-1)
         cart = pd.DataFrame(carteira['CARTEIRA'])
         cart_bench = pd.concat([cart, benchmark], axis = 1)
         st.write(graf_plotly(cart_bench))
