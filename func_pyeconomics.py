@@ -69,7 +69,7 @@ def gera_carteira(ativos,ano_inicio):
         frame = frame['Adj Close']
         frame = pd.DataFrame(frame)
         frame = frame.rename(columns={'Adj Close':f'{i}'})
-        dataframe = pd.concat([frame, dataframe], axis = 1)
+        dataframe = pd.concat([frame, dataframe], axis = 1).dropna()
     return dataframe
 
 
