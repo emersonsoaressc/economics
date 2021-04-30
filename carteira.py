@@ -30,7 +30,7 @@ def pag_carteira():
     peso = []
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
-        peso = peso + ps
+        peso.append(ps)
     st.write(f'A soma dos pesos é {peso}')
     ### ========= ARQUITETURA DA PÁGINA ========= ### 
     st.write(
