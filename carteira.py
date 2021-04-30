@@ -47,7 +47,7 @@ def pag_carteira():
             ativos_ibov = pd.concat([carteira, benchmark], axis = 1)
             st.write(graf_plotly(cart_bench))
             st.markdown(
-                '***\textcolor{blue}COMPARATIVO - ATIVOS X IBOVESPA}***'
+                '***COMPARATIVO - ATIVOS X IBOVESPA}***'
 
             )
             st.write(graf_plotly(df_norm))
