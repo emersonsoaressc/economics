@@ -38,7 +38,13 @@ def pag_carteira():
     )
     st.write(graf_plotly(ativos_ibov))
     st.write(ativos_ibov)
-    ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
+    ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
+    st.write(
+    '"TAXA DE RETORNO DA CARTEIRA"'
+    )
+    tx_retorno = (df_norm / df_norm.shift(1)) - 1
+    st.write(tx_retorno)
+        ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
     st.write(
     '"CORRELAÇÃO ENTRE OS ATIVOS"'
     )
