@@ -51,6 +51,7 @@ def pag_carteira():
             )
             st.write(graf_plotly(df_norm))
             st.write(df_norm)
+            st.write(carteira)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.write(
             '"TAXA DE RETORNO DA CARTEIRA"'
