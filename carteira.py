@@ -1,4 +1,5 @@
 import pandas as pd 
+import numpy as np 
 import streamlit as st
 import options as opt
 from pandas_datareader import data
@@ -37,3 +38,7 @@ def pag_carteira():
     )
     st.write(graf_plotly(ativos_ibov))
     st.write(ativos_ibov)
+    ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
+    st.write(
+    '"CORRELAÇÃO ENTRE OS ATIVOS"'
+    )
