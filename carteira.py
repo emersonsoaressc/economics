@@ -34,32 +34,33 @@ def pag_carteira():
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso.append(ps)
-    if st.sidebar.button('Gerar Carteira') & (sum(peso) != 100):
+    if (sum(peso) != 100):
         st.sidebar.write('A soma dos pesos tem que ser de 100%')
     else:
-        ### ========= ARQUITETURA DA PÁGINA ========= ### 
-        for i in range(0,n_stocks):
-            st.write(f'{stocks[i]}: {peso[i]}')
+        if st.sidebar.button('Gerar Carteira'):
+            ### ========= ARQUITETURA DA PÁGINA ========= ### 
+            for i in range(0,n_stocks):
+                st.write(f'{stocks[i]}: {peso[i]}')
 
-        ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
-        st.write(
-            '"COMPARATIVO - CARTEIRA X IBOVESPA"'
-        )
-        st.write(graf_plotly(cart_bench))
-        st.write(
-            '"COMPARATIVO - ATIVOS X IBOVESPA"'
-        )
-        st.write(graf_plotly(ativos_ibov))
-        st.write(ativos_ibov)
-        ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
-        st.write(
-        '"TAXA DE RETORNO DA CARTEIRA"'
-        )
-        tx_retorno = (df_norm / df_norm.shift(1)) - 1
-        retorno_anual = tx_retorno.mean() * 246
-        st.write(retorno_anual)
-        st.write(tx_retorno)
-            ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
-        st.write(
-        '"CORRELAÇÃO ENTRE OS ATIVOS"'
-        )
+            ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
+            st.write(
+                '"COMPARATIVO - CARTEIRA X IBOVESPA"'
+            )
+            st.write(graf_plotly(cart_bench))
+            st.write(
+                '"COMPARATIVO - ATIVOS X IBOVESPA"'
+            )
+            st.write(graf_plotly(ativos_ibov))
+            st.write(ativos_ibov)
+            ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
+            st.write(
+            '"TAXA DE RETORNO DA CARTEIRA"'
+            )
+            tx_retorno = (df_norm / df_norm.shift(1)) - 1
+            retorno_anual = tx_retorno.mean() * 246
+            st.write(retorno_anual)
+            st.write(tx_retorno)
+                ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
+            st.write(
+            '"CORRELAÇÃO ENTRE OS ATIVOS"'
+            )
