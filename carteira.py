@@ -27,10 +27,11 @@ def pag_carteira():
     st.write(
         'Coloque o peso que cada ativo terá na carteira. Lembre-se que a soma deverá ser de 100%'
     )
+    peso = ([])
     for i in range(0,n_stocks):
-        st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
-    soma_pesos = peso_1
-    st.write(f'A soma dos pesos é {soma_pesos}')
+        ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
+        peso = peso + ps
+    st.write(f'A soma dos pesos é {peso}')
     ### ========= ARQUITETURA DA PÁGINA ========= ### 
     st.write(
         'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
