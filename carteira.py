@@ -24,6 +24,9 @@ def pag_carteira():
     cart = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([cart, benchmark], axis = 1)
     ativos_ibov = pd.concat([carteira, benchmark], axis = 1)
+    st.write(
+        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
+    )
     st.sidebar.write(
         'Coloque o peso que cada ativo terá na carteira. Lembre-se que a soma deverá ser de 100%'
     )
@@ -34,9 +37,7 @@ def pag_carteira():
     st.sidebar.write(f'A soma dos pesos é {peso}')
     if st.sidebar.button('Gerar Carteira'):
         ### ========= ARQUITETURA DA PÁGINA ========= ### 
-        st.write(
-            'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
-        )
+
         ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
         st.write(
             '"COMPARATIVO - CARTEIRA X IBOVESPA"'
