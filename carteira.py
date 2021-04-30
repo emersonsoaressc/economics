@@ -34,7 +34,7 @@ def pag_carteira():
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso.append(ps)
-    if (sum(peso) != 100):
+    if (sum(peso) != 100) & (n_stocks > 0):
         st.sidebar.write('A soma dos pesos tem que ser de 100%')
     else:
         if st.sidebar.button('Gerar Carteira'):
