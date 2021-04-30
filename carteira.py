@@ -34,11 +34,12 @@ def pag_carteira():
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso.append(ps)
-    st.sidebar.write(f'A soma dos pesos é {peso}')
     if st.sidebar.button('Gerar Carteira') & sum(peso) != 100:
         st.sidebar.write('A soma dos pesos tem que ser de 100%')
     else:
         ### ========= ARQUITETURA DA PÁGINA ========= ### 
+        for i in range(0,n_stocks):
+            st.write(f'{stocks[i]}: {peso[i]}')
 
         ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
         st.write(
