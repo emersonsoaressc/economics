@@ -43,7 +43,8 @@ def pag_carteira():
     '"TAXA DE RETORNO DA CARTEIRA"'
     )
     tx_retorno = (df_norm / df_norm.shift(1)) - 1
-    st.write(df_norm)
+    retorno_anual = tx_retorno.mean() * 246
+    st.write(retorno_anual)
     st.write(tx_retorno)
         ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
     st.write(
