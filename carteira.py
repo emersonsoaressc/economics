@@ -32,8 +32,8 @@ def pag_carteira():
             ### ========= ARQUITETURA DA PÁGINA ========= ### 
 
             ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
-            st.write(
-                '"COMPARATIVO - CARTEIRA X IBOVESPA"'
+            st.markdown(
+                '*COMPARATIVO - CARTEIRA X IBOVESPA*'
             )
             dataframe = gera_carteira(stocks,period)
             df_norm = normaliza_carteira(dataframe)
