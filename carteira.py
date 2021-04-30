@@ -32,29 +32,30 @@ def pag_carteira():
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso.append(ps)
     st.sidebar.write(f'A soma dos pesos é {peso}')
-    ### ========= ARQUITETURA DA PÁGINA ========= ### 
-    st.write(
-        'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
-    )
-    ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
-    st.write(
-        '"COMPARATIVO - CARTEIRA X IBOVESPA"'
-    )
-    st.write(graf_plotly(cart_bench))
-    st.write(
-        '"COMPARATIVO - ATIVOS X IBOVESPA"'
-    )
-    st.write(graf_plotly(ativos_ibov))
-    st.write(ativos_ibov)
-    ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
-    st.write(
-    '"TAXA DE RETORNO DA CARTEIRA"'
-    )
-    tx_retorno = (df_norm / df_norm.shift(1)) - 1
-    retorno_anual = tx_retorno.mean() * 246
-    st.write(retorno_anual)
-    st.write(tx_retorno)
-        ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
-    st.write(
-    '"CORRELAÇÃO ENTRE OS ATIVOS"'
-    )
+    if st.sidebar.button('Gerar Carteira'):
+        ### ========= ARQUITETURA DA PÁGINA ========= ### 
+        st.write(
+            'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
+        )
+        ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
+        st.write(
+            '"COMPARATIVO - CARTEIRA X IBOVESPA"'
+        )
+        st.write(graf_plotly(cart_bench))
+        st.write(
+            '"COMPARATIVO - ATIVOS X IBOVESPA"'
+        )
+        st.write(graf_plotly(ativos_ibov))
+        st.write(ativos_ibov)
+        ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
+        st.write(
+        '"TAXA DE RETORNO DA CARTEIRA"'
+        )
+        tx_retorno = (df_norm / df_norm.shift(1)) - 1
+        retorno_anual = tx_retorno.mean() * 246
+        st.write(retorno_anual)
+        st.write(tx_retorno)
+            ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
+        st.write(
+        '"CORRELAÇÃO ENTRE OS ATIVOS"'
+        )
