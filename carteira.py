@@ -25,7 +25,7 @@ def pag_carteira():
     cart_bench = pd.concat([cart, benchmark], axis = 1)
     ativos_ibov = pd.concat([carteira, benchmark], axis = 1)
     for i in range(0,n_stocks):
-        st.sidebar.number_input('Pesos',0.001,100.0,key=f'peso_{i}')
+        st.sidebar.number_input(f'Peso do ativo {stocks(i)}',0,100,key=f'peso_{i}')
     ### ========= ARQUITETURA DA PÁGINA ========= ### 
     st.write(
         'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
