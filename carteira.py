@@ -28,14 +28,16 @@ def pag_carteira():
         'Nesta página você poderá realizar a simulação de uma carteira de ações e compará-la com o benchmark (Ibovespa). Basta escolher os ativos e o período inicial na barra lateral. Os dados são extraídos de diversas fontes, sendo a fonte principal o YAHOO FINANCE. Também será realizada diversas análises referente ao portfólio.'
     )
     st.sidebar.write(
-        'Coloque o peso que cada ativo terá na carteira. Lembre-se que a soma deverá ser de 100%'
+        'Coloque o peso que cada ativo terá na carteira'
     )
     peso = []
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso.append(ps)
     st.sidebar.write(f'A soma dos pesos é {peso}')
-    if st.sidebar.button('Gerar Carteira') & sum(peso) == 100:
+    if st.sidebar.button('Gerar Carteira') & sum(peso) != 100:
+        st.sidebar.write('A soma dos pesos tem que ser de 100%')
+    else:
         ### ========= ARQUITETURA DA PÁGINA ========= ### 
 
         ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
