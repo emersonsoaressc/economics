@@ -27,7 +27,7 @@ def pag_carteira():
     st.write(
         'Coloque o peso que cada ativo terá na carteira. Lembre-se que a soma deverá ser de 100%'
     )
-    peso = ([])
+    peso = []
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
         peso = peso + ps
