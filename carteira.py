@@ -46,12 +46,10 @@ def pag_carteira():
             cart_bench = pd.concat([cart, benchmark], axis = 1)
             ativos_ibov = pd.concat([carteira, benchmark], axis = 1)
             st.write(graf_plotly(cart_bench))
-            st.write(
+            st.text(
                 '"COMPARATIVO - ATIVOS X IBOVESPA"'
             )
             st.write(graf_plotly(df_norm))
-            st.write(df_norm)
-            st.write(carteira)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.write(
             '"TAXA DE RETORNO DA CARTEIRA"'
