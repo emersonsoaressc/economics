@@ -30,9 +30,6 @@ def pag_carteira():
     elif (sum(peso) == 100):
         if st.sidebar.button('Gerar Carteira'):
             ### ========= ARQUITETURA DA PÁGINA ========= ### 
-            for i in range(0,n_stocks):
-                st.write(f'{stocks[i]}: {peso[i]/100}')
-            st.write(peso)
 
             ### ========= COMPARATIVO CARTEIRA X IBOVESPA ========= ### 
             st.write(
