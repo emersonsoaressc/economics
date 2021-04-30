@@ -24,6 +24,9 @@ def pag_carteira():
     cart = pd.DataFrame(carteira['CARTEIRA'])
     cart_bench = pd.concat([cart, benchmark], axis = 1)
     ativos_ibov = pd.concat([carteira, benchmark], axis = 1)
+    st.write(
+        'Coloque o peso que cada ativo terá na carteira. Lembre-se que a soma deverá ser de 100%'
+    )
     for i in range(0,n_stocks):
         st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
     ### ========= ARQUITETURA DA PÁGINA ========= ### 
