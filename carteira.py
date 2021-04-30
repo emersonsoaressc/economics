@@ -49,8 +49,8 @@ def pag_carteira():
             st.write(
                 '"COMPARATIVO - ATIVOS X IBOVESPA"'
             )
-            st.write(graf_plotly(ativos_ibov))
-            st.write(carteira)
+            st.write(graf_plotly(df_norm))
+            st.write(df_norm)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.write(
             '"TAXA DE RETORNO DA CARTEIRA"'
