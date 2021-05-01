@@ -7,6 +7,7 @@ from func_pyeconomics import  graf_plotly, gera_carteira, normaliza_carteira, gr
 import plotly.graph_objects as go
 import plotly.express as px 
 import seaborn as sns 
+import matplotlib.pyplot as plt
 
 
 ### ==== FUNÇÃO PARA CRIAR PÁGINA DE ANÁLISE DE CARTEIRA ==== ###
@@ -60,5 +61,16 @@ def pag_carteira():
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             correlacao = tx_retorno.corr()
             st.write(correlacao)
-            grafico_corr = graf_corr(correlacao)
-            st.plotly_chart(grafico_corr)
+
+            fig, ax = plt.subplots()
+            im = ax.imshow(correlacao.values)
+            ax.set_xticks(range(len(correlacao)))
+            ax.set_yticks(range(len(correlacao)))
+            ax.set_xticklabels(correlacao.columns)
+            ax.set_yticklabels(correlacao.columns)
+            for i in range(len(correlacao)):
+                for j in range(len(correlacao)):
+                    text = ax.text(j, i, round(correlacao.values[i, j],2),
+                                ha="center", va="center", color="w")
+            fig.tight_layout()
+            st.plotly_chart(fig)
