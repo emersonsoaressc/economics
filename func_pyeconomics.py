@@ -3,6 +3,7 @@ import pandas as pd
 import sgs
 import plotly.graph_objects as go
 import plotly.express as px
+import seaborn as sns
 import options as opt
 from pandas_datareader import data
 
@@ -83,5 +84,6 @@ def normaliza_carteira(dataframe):
 
 def graf_corr(dataframe):
     fig = px.imshow(dataframe)
+    fig = ff.create_annotated_heatmap()
     fig.show()
     return fig
