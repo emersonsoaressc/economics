@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd  
 import sgs
 import plotly.graph_objects as go
-import plotly.express as px
 import seaborn as sns
 import options as opt
+import matplotlib.pyplot as plt
 from pandas_datareader import data
 
 ### ==== FUNÇÃO PARA CRIAR GRÁFICOS DO PLOTLY A PARTIR DE BASE DE DADOS SGS BACEN ==== ###
@@ -83,6 +83,9 @@ def normaliza_carteira(dataframe):
 
 
 def graf_corr(dataframe):
-    fig = px.imshow(dataframe, color_continuous_scale='Teal', text='dataframe.values')
-    fig.show()
-    return fig
+    plt.figure(figsize=(20,10))
+    plt.imshow(dataframe, cmap= 'RdYlGn', interpolation='none', aspect='auto')
+    plt.colorbar()
+    plt.xticks(range(len(dataframe)), dataframe.columns, rotation= 'vertical')
+    plt.yticks(range(len(dataframe)), dataframe.columns)
+    plt.suptitle('Correlacão de Ativos', fontsize=1) 
