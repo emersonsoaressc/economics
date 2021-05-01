@@ -59,5 +59,5 @@ def pag_carteira():
              ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
             retorno_carteira = ((cart/cart.shift(1))-1).dropna()
-            st.write(cart)
+            st.write(graf_plotly(retorno_carteira))
             st.write(retorno_carteira)
