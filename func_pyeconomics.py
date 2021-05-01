@@ -87,7 +87,7 @@ def graf_corr(dataframe):
     im = ax.imshow(dataframe.values)
     ax.set_xticks(range(len(dataframe)), rotation='vertical')
     ax.set_yticks(range(len(dataframe)))
-    ax.set_xticklabels(dataframe.columns, autosize=True)
+    ax.set_xticklabels(dataframe.columns)
     ax.set_yticklabels(dataframe.columns)
     for i in range(len(dataframe)):
         for j in range(len(dataframe)):
