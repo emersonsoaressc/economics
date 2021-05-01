@@ -60,18 +60,4 @@ def pag_carteira():
                 ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             correlacao = tx_retorno.corr()
-            st.write(correlacao)
-
-            fig, ax = plt.subplots()
-            im = ax.imshow(correlacao.values)
-            ax.set_xticks(range(len(correlacao)))
-            ax.set_yticks(range(len(correlacao)))
-            ax.set_xticklabels(correlacao.columns)
-            ax.set_yticklabels(correlacao.columns)
-            for i in range(len(correlacao)):
-                for j in range(len(correlacao)):
-                    text = ax.text(j, i, round(correlacao.values[i, j],3),
-                                ha="center", va="center", color="w")
-            fig.tight_layout()
-            st.write(fig)
             st.write(graf_corr(correlacao))
