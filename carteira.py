@@ -53,7 +53,7 @@ def pag_carteira():
             st.write(graf_plotly(df_norm))
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
-            tx_retorno = (df_norm / df_norm.shift(1)) - 1
+            tx_retorno = ((df_norm / df_norm.shift(1)) - 1).dropna()
             retorno_anual = tx_retorno.mean() * 246
             st.write(retorno_anual)
             st.write(tx_retorno)
