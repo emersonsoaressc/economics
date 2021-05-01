@@ -74,3 +74,4 @@ def pag_carteira():
                                 ha="center", va="center", color="w")
             fig.tight_layout()
             st.write(fig)
+            st.write(graf_corr(correlacao))

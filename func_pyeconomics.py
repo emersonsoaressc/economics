@@ -83,9 +83,15 @@ def normaliza_carteira(dataframe):
 
 
 def graf_corr(dataframe):
-    plt.figure(figsize=(20,10))
-    plt.imshow(dataframe, cmap= 'RdYlGn', interpolation='none', aspect='auto')
-    plt.colorbar()
-    plt.xticks(range(len(dataframe)), dataframe.columns, rotation= 'vertical')
-    plt.yticks(range(len(dataframe)), dataframe.columns)
-    plt.suptitle('Correlacão de Ativos', fontsize=1) 
+    fig, ax = plt.subplots()
+    im = ax.imshow(dataframe.values)
+    ax.set_xticks(range(len(dataframe)))
+    ax.set_yticks(range(len(dataframe)))
+    ax.set_xticklabels(dataframe.columns)
+    ax.set_yticklabels(dataframe.columns)
+    for i in range(len(dataframe)):
+        for j in range(len(dataframe)):
+            text = ax.text(j, i, round(dataframe.values[i, j],3),
+                        ha="center", va="center", color="w")
+    fig.tight_layout()
+    return fig
