@@ -85,7 +85,7 @@ def normaliza_carteira(dataframe):
 def graf_corr(dataframe):
     fig, ax = plt.subplots()
     im = ax.imshow(dataframe.values)
-    ax.set_xticks(range(len(dataframe)))
+    ax.set_xticks(range(len(dataframe)), rotation='vertical')
     ax.set_yticks(range(len(dataframe)))
     ax.set_xticklabels(dataframe.columns, autosize=True)
     ax.set_yticklabels(dataframe.columns)
