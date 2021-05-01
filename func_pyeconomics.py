@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd  
 import sgs
 import plotly.graph_objects as go
+import plotly.express as px
 import options as opt
 from pandas_datareader import data
 
@@ -78,3 +79,9 @@ def normaliza_carteira(dataframe):
     for i in dataframe.columns[0:]:
         df_normalizado[i] = dataframe[i] / dataframe[i][0]
     return df_normalizado
+
+
+def graf_corr(dataframe):
+    fig = px.imshow(dataframe)
+    fig.show()
+    return fig

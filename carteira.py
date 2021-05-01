@@ -3,8 +3,9 @@ import numpy as np
 import streamlit as st
 import options as opt
 from pandas_datareader import data
-from func_pyeconomics import  graf_plotly, gera_carteira, normaliza_carteira
+from func_pyeconomics import  graf_plotly, gera_carteira, normaliza_carteira, graf_corr
 import plotly.graph_objects as go
+import plotly.express as px 
 
 
 ### ==== FUNÇÃO PARA CRIAR PÁGINA DE ANÁLISE DE CARTEIRA ==== ###
@@ -58,3 +59,4 @@ def pag_carteira():
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             correlacao = tx_retorno.corr()
             st.write(correlacao)
+            st.write(graf_corr(correlacao))
