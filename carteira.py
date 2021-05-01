@@ -60,5 +60,5 @@ def pag_carteira():
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             correlacao = tx_retorno.corr()
             st.write(correlacao)
-            graf_corr = graf_corr(correlacao)
-            st.plotly_chart(graf_corr)
+            grafico_corr = graf_corr(correlacao)
+            st.plotly_chart(grafico_corr)
