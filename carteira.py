@@ -6,6 +6,7 @@ from pandas_datareader import data
 from func_pyeconomics import  graf_plotly, gera_carteira, normaliza_carteira, graf_corr
 import plotly.graph_objects as go
 import plotly.express as px 
+import seaborn as sns 
 
 
 ### ==== FUNÇÃO PARA CRIAR PÁGINA DE ANÁLISE DE CARTEIRA ==== ###
@@ -59,4 +60,4 @@ def pag_carteira():
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             correlacao = tx_retorno.corr()
             st.write(correlacao)
-            st.write(graf_corr(correlacao))
+            st.write(sns.heatmap(correlacao))

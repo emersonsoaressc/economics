@@ -83,7 +83,6 @@ def normaliza_carteira(dataframe):
 
 
 def graf_corr(dataframe):
-    fig = px.imshow(dataframe,range_color=[0,1])
-    fig.update_xaxes(side = 'top')
+    fig = px.imshow(dataframe)
     fig.show()
     return fig
