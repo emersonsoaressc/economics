@@ -55,6 +55,7 @@ def pag_carteira():
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
             tx_retorno = ((df_norm / df_norm.shift(1)) - 1).dropna()
             retorno_carteira = tx_retorno.drop(columns='IBOVESPA')
+            retorno_carteira['CARTEIRA'] = retorno_carteira.sum(axis=1)
             retorno_anual = tx_retorno.mean() * 246
             st.write(retorno_carteira)
             st.write(tx_retorno)
