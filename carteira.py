@@ -58,6 +58,6 @@ def pag_carteira():
             st.write(graf_corr(correlacao))
              ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
-
+            retorno_carteira = (cart/cart.shift(1))-1
             st.write(cart)
-            st.write(cart)
+            st.write(retorno_carteira)
