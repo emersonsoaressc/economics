@@ -54,7 +54,6 @@ def pag_carteira():
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
 
-            retorno_anual = tx_retorno.mean() * 246
             st.write(cart)
             st.write(cart)
                 ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
