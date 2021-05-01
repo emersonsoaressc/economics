@@ -70,7 +70,7 @@ def pag_carteira():
             ax.set_yticklabels(correlacao.columns)
             for i in range(len(correlacao)):
                 for j in range(len(correlacao)):
-                    text = ax.text(j, i, round(correlacao.values[i, j],2),
+                    text = ax.text(j, i, round(correlacao.values[i, j],3),
                                 ha="center", va="center", color="w")
             fig.tight_layout()
             st.write(fig)
