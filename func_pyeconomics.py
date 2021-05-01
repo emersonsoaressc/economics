@@ -92,6 +92,6 @@ def graf_corr(dataframe):
     for i in range(len(dataframe)):
         for j in range(len(dataframe)):
             text = ax.text(j, i, round(dataframe.values[i, j],3),
-                        ha="center", va="center", color="w", size=5)
+                        ha="center", va="center", color="w", size=6)
     fig.tight_layout()
     return fig
