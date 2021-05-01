@@ -56,3 +56,5 @@ def pag_carteira():
             st.write(tx_retorno)
                 ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
+            correlacao = tx_retorno.corr()
+            st.write(correlacao)
