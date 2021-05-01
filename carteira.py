@@ -53,13 +53,12 @@ def pag_carteira():
             st.write(graf_plotly(df_norm))
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
-            tx_retorno = ((df_norm / df_norm.shift(1)) - 1).dropna()
-            retorno_carteira = tx_retorno.drop(columns='IBOVESPA')
-            retorno_carteira['CARTEIRA'] = retorno_carteira.sum(axis=1)
+
             retorno_anual = tx_retorno.mean() * 246
-            st.write(retorno_carteira)
-            st.write(tx_retorno)
+            st.write(cart)
+            st.write(cart)
                 ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
-            correlacao = tx_retorno.corr()
+            retorno_ativos = ((df_norm / df_norm.shift(1)) - 1).dropna()
+            correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
