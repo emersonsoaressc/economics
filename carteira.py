@@ -73,4 +73,4 @@ def pag_carteira():
                     text = ax.text(j, i, round(correlacao.values[i, j],2),
                                 ha="center", va="center", color="w")
             fig.tight_layout()
-            st.write(fig.show())
+            st.write(fig)
