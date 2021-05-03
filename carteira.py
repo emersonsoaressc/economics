@@ -62,7 +62,7 @@ def pag_carteira():
             for i in retorno_ativos.columns:
                 variancia[f'{i}'] = retorno_ativos[f'{i}'].var()*246
             st.write(variancia)
-            st.write(variancia)
+            st.write(retorno_ativos)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
             retorno_carteira = ((cart/cart.shift(1))-1).dropna()
