@@ -54,12 +54,14 @@ def pag_carteira():
             ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             retorno_ativos = ((df_norm / df_norm.shift(1)) - 1).dropna()
+            retorno_ativos = retorno_ativos[1:]
             correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
             variancia = pd.DataFrame()
             for i in retorno_ativos.columns:
                 variancia[f'{i}'] = retorno_ativos[f'{i}'].var()*246
+            st.write(variancia)
             st.write(variancia)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
