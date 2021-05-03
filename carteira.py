@@ -54,12 +54,11 @@ def pag_carteira():
             ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             retorno_ativos = ((df_norm / df_norm.shift(1)) - 1).dropna()
-            retorno_ativos = retorno_ativos[1:]
             correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
             weights = np.array(peso)
-            cov_ativos = retorno_ativos.cov()
+            cov_ativos = retorno_ativos.drop(columns='IBOVESPA').cov()
             #pfolio_var = np.dot(weights.T, np.dot(retorno_ativos.cov()*246,weights))
             st.write(weights.T)
             st.write(cov_ativos)
