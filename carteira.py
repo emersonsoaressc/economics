@@ -27,10 +27,10 @@ def pag_carteira():
     peso = []
     for i in range(0,n_stocks):
         ps = st.sidebar.number_input(f'Peso do ativo {stocks[i]}',0,100,key=f'peso_{i}')
-        peso.append(ps)
-    if (sum(peso) != 100) & (n_stocks > 0):
+        peso.append(ps/100)
+    if (sum(peso) != 1) & (n_stocks > 0):
         st.sidebar.write('A soma dos pesos tem que ser de 100%')
-    elif (sum(peso) == 100):
+    elif (sum(peso) == 1):
         if st.sidebar.button('Gerar Carteira'):
             ### ========= ARQUITETURA DA PÁGINA ========= ### 
 
@@ -57,7 +57,7 @@ def pag_carteira():
             correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
-            weights = np.array(peso/100)
+            weights = np.array(peso)
             cov_ativos = retorno_ativos.drop(columns='IBOVESPA').cov()*246
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
             st.write(weights.T)
