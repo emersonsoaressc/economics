@@ -60,9 +60,10 @@ def pag_carteira():
             weights = np.array(peso)
             cov_ativos = retorno_ativos.drop(columns='IBOVESPA').cov()*246
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
-            st.write(weights.T)
+            pfolio_vol = pfolio_var**0.5
+            st.write(f'A variância do portfólio é {pfolio_var}')
+            st.write(f'A volatilidade do portfólio é {pfolio_vol}')
             st.write(cov_ativos)
-            st.write(pfolio_var)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
             retorno_carteira = ((cart/cart.shift(1))-1).dropna()
