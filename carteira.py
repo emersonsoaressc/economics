@@ -59,7 +59,7 @@ def pag_carteira():
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
             var_stocks = pd.DataFrame(retorno_ativos.var()*246)
-            st.write(var_stocks)
+            st.write(var_stocks.T)
             st.write(retorno_ativos)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
