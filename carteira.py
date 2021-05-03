@@ -43,7 +43,7 @@ def pag_carteira():
             df_norm.rename(columns={'^BVSP':'IBOVESPA'}, inplace=True)
             benchmark = pd.DataFrame(df_norm['IBOVESPA'])
             carteira = df_norm.drop(columns='IBOVESPA')
-            carteira = carteira * peso/100
+            carteira = carteira * peso
             carteira['CARTEIRA'] = carteira.sum(axis=1)
             cart = pd.DataFrame(carteira['CARTEIRA'])
             cart_bench = pd.concat([cart, benchmark], axis = 1)
