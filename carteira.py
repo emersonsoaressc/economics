@@ -59,9 +59,10 @@ def pag_carteira():
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
             weights = np.array(peso)
+            cov_ativos = (retorno_ativos.cov())*246
             #pfolio_var = np.dot(weights.T, np.dot(retorno_ativos.cov()*246,weights))
             st.write(weights.T)
-            st.write(retorno_ativos.cov()*246)
+            st.write(cov_ativos)
             st.write(retorno_ativos)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
