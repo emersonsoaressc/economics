@@ -58,7 +58,8 @@ def pag_carteira():
             correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
-            pfolio_var = np.dot(peso.T, np.dot(retorno_ativos.cov()*246,peso))
+            weights = np.array(peso)
+            pfolio_var = np.dot(weights.T, np.dot(retorno_ativos.cov()*246,weights))
             var_stocks = pd.DataFrame(retorno_ativos.var()*246)
             st.write(var_stocks.T)
             st.write(pfolio_var)
