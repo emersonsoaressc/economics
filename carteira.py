@@ -59,7 +59,7 @@ def pag_carteira():
             st.write(graf_corr(correlacao))
             ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
             weights = np.array(peso)
-            cov_ativos = (retorno_ativos.cov())*246
+            cov_ativos = retorno_ativos.cov()
             #pfolio_var = np.dot(weights.T, np.dot(retorno_ativos.cov()*246,weights))
             st.write(weights.T)
             st.write(cov_ativos)
