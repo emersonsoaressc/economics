@@ -61,7 +61,7 @@ def pag_carteira():
             weights = np.array(peso)
             #pfolio_var = np.dot(weights.T, np.dot(retorno_ativos.cov()*246,weights))
             st.write(weights.T)
-            #st.write(pfolio_var)
+            st.write(retorno_ativos.cov()*246)
             st.write(retorno_ativos)
             ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
             st.markdown('***TAXA DE RETORNO DA CARTEIRA***')
