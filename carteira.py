@@ -79,3 +79,5 @@ def pag_carteira():
             st.write(f'A variância do portfólio é {round(pfolio_var*100,2)}%. A variância do Ibovespa é {float(round(benchmark_var*100,2))}%.')
             st.write(f'A volatilidade do portfólio é {round(pfolio_vol*100,2)}%. A volatilidade do Ibovespa é {float(round(benchmark_vol*100,2))}%.')
             st.write(f'O Sharpe Ratio é de {float(round(pfolio_sharpe,2))}. O Sharpe Ratio do Ibovespa é {float(round(benchmark_sharpe,2))}.')
+            st.write(retorno_benchmark)
+            st.write(retorno_carteira)
