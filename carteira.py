@@ -51,25 +51,26 @@ def pag_carteira():
             st.write(graf_plotly(cart_bench))
             st.markdown('***COMPARATIVO - ATIVOS X IBOVESPA***')
             st.write(graf_plotly(df_norm))
+
             ### ========= CORRELAÇÃO ENTRE OS ATIVOS ========= ###
             st.markdown('***CORRELAÇÃO ENTRE OS ATIVOS***')
             retorno_ativos = ((df_norm / df_norm.shift(1)) - 1).dropna()
             correlacao = retorno_ativos.corr()
             st.write(graf_corr(correlacao))
-            ### ========= CALCULANDO O RISCO DE UM PORTFÓLIO ========= ###
+
+            ### ========= CALCULANDO O RETORNO DE UM PORTFÓLIO ========= ###
+            retorno_carteira = ((cart/cart.shift(1))-1).dropna()
+            st.markdown('***TAXA DE RETORNO DIÁRIO DA CARTEIRA***')
+            st.write(graf_plotly(retorno_carteira))
+            
+            ### ========= CALCULANDO A VARIÂNCIA E O DESVIO PADRÃO DO PORTFÓLIO ========= ###
+            st.markdown('***VARIÂNCIA, VOLATILIDADE E SHARPE RATIO DA CARTEIRA***')
             weights = np.array(peso)
             cov_ativos = retorno_ativos.drop(columns='IBOVESPA').cov()*246
-            retorno_carteira = ((cart/cart.shift(1))-1).dropna()
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
             pfolio_vol = pfolio_var**0.5  
-            dp = retorno_carteira.std()    
+            pfolio_sharpe = retorno_carteira.mean() / pfolio_vol
             retorno_acum_carteira = cart['CARTEIRA'].iloc[-1] / cart['CARTEIRA'].iloc[0] - 1
             st.write(f'A variância do portfólio é {pfolio_var}')
             st.write(f'A volatilidade do portfólio é {pfolio_vol}')
-            st.write(dp)
-            st.write(cov_ativos)
-            ### ========= TAXA DE RETORNO DA CARTEIRA ========= ###
-            st.markdown('***TAXA DE RETORNO DIÁRIO DA CARTEIRA***')
-            st.write(graf_plotly(retorno_carteira))
-            st.write(cart)
-            st.write(retorno_acum_carteira)
+            st.write(f'O Sharpe Ratio é de {pfolio_sharpe}')
