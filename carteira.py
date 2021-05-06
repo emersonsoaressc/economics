@@ -62,7 +62,7 @@ def pag_carteira():
             retorno_carteira = ((cart/cart.shift(1))-1)
             retorno_benchmark = ((benchmark/benchmark.shift(1))-1)
             st.markdown('***TAXA DE RETORNO DIÁRIO DA CARTEIRA***')
-            st.write(graf_plotly(retorno_carteira))
+            st.write(graf_plotly((retorno_carteira*100)))
             
             ### ========= CALCULANDO A VARIÂNCIA E O DESVIO PADRÃO DO PORTFÓLIO ========= ###
             st.markdown('***VARIÂNCIA, VOLATILIDADE E SHARPE RATIO DA CARTEIRA***')
