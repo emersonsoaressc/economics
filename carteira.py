@@ -59,8 +59,8 @@ def pag_carteira():
             st.write(graf_corr(correlacao))
 
             ### ========= CALCULANDO O RETORNO DE UM PORTFÓLIO ========= ###
-            retorno_carteira = ((cart/cart.shift(1))-1).dropna()
-            retorno_benchmark = ((benchmark/benchmark.shift(1))-1).dropna()
+            retorno_carteira = ((cart/cart.shift(1))-1)
+            retorno_benchmark = ((benchmark/benchmark.shift(1))-1)
             st.markdown('***TAXA DE RETORNO DIÁRIO DA CARTEIRA***')
             st.write(graf_plotly(retorno_carteira))
             
