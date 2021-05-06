@@ -62,7 +62,7 @@ def pag_carteira():
             retorno_carteira = ((cart/cart.shift(1))-1).dropna()
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
             pfolio_vol = pfolio_var**0.5      
-            retorno_acum_carteira = cart.loc[len(cart)-1]['CARTEIRA'] / cart.loc[0]['CARTEIRA'] - 1    
+            retorno_acum_carteira = cart[-1]
             st.write(f'A variância do portfólio é {pfolio_var}')
             st.write(f'A volatilidade do portfólio é {pfolio_vol}')
             st.write(cov_ativos)
