@@ -69,7 +69,7 @@ def pag_carteira():
             cov_ativos = retorno_ativos.drop(columns='IBOVESPA').cov()*246
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
             pfolio_vol = pfolio_var**0.5  
-            pfolio_sharpe = retorno_carteira.mean() / pfolio_vol
+            pfolio_sharpe = (retorno_carteira.mean() / pfolio_vol)*246
             retorno_acum_carteira = cart['CARTEIRA'].iloc[-1] / cart['CARTEIRA'].iloc[0] - 1
             st.write(f'A variância do portfólio é {pfolio_var}')
             st.write(f'A volatilidade do portfólio é {pfolio_vol}')
