@@ -73,4 +73,4 @@ def pag_carteira():
             retorno_acum_carteira = cart['CARTEIRA'].iloc[-1] / cart['CARTEIRA'].iloc[0] - 1
             st.write(f'A variância do portfólio é {pfolio_var}')
             st.write(f'A volatilidade do portfólio é {pfolio_vol}')
-            st.write(f'O Sharpe Ratio é de {int(pfolio_sharpe)}')
+            st.write(f'O Sharpe Ratio é de {float(pfolio_sharpe)}')
