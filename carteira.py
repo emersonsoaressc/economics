@@ -60,6 +60,7 @@ def pag_carteira():
 
             ### ========= CALCULANDO O RETORNO DE UM PORTFÓLIO ========= ###
             retorno_carteira = ((cart/cart.shift(1))-1).dropna()
+            retorno_benchmark = ((benchmark/benchmark.shift(1))-1).dropna()
             st.markdown('***TAXA DE RETORNO DIÁRIO DA CARTEIRA***')
             st.write(graf_plotly(retorno_carteira))
             
@@ -70,7 +71,11 @@ def pag_carteira():
             pfolio_var = np.dot(weights.T, np.dot(cov_ativos,weights))
             pfolio_vol = pfolio_var**0.5  
             pfolio_sharpe = (retorno_carteira.mean() / pfolio_vol)*np.sqrt(246)*100
-            retorno_acum_carteira = cart['CARTEIRA'].iloc[-1] / cart['CARTEIRA'].iloc[0] - 1
-            st.write(f'A variância do portfólio é {pfolio_var}')
-            st.write(f'A volatilidade do portfólio é {pfolio_vol}')
-            st.write(f'O Sharpe Ratio é de {float(pfolio_sharpe)}')
+
+            benchmark_var = benchmark.var()
+            benchmark_vol = benchmark_var**0.5
+            benchmark_sharpe = (retorno_benchmark.mean() / benchmark_vol)*np.sqrt(246)*100
+            
+            st.write(f'A variância do portfólio é {pfolio_var}. A variância do Ibovespa é {benchmark_var}.')
+            st.write(f'A volatilidade do portfólio é {pfolio_vol}. A volatilidade do Ibovespa é {benchmark_vol}.')
+            st.write(f'O Sharpe Ratio é de {float(pfolio_sharpe)}. O Sharpe Ratio do Ibovespa é {float(benchmark_sharpe)}.')
